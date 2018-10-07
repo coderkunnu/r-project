@@ -5,6 +5,10 @@
 # install.packages("caTools")
 # install.packages("Amelia")
 
+# Setting relative path for data files (CAN IGNORE)
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+setwd('..')
+
 # importing the required libraries
 library(plyr)
 library(dplyr)
@@ -15,7 +19,7 @@ library(Amelia)
 ## GETTIING AND ANALYSING DATA
 
 # this is how we get csv data and save into data frame
-df <- read.csv("Data/titanic/train.csv")
+df <- read.csv("WorkSpace/Data/titanic/train.csv")
 
 summary(df) # summary of data
 str(df) # structure of data
