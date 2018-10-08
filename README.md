@@ -1,20 +1,20 @@
-# rproject Repository
+# r-project Repository
 
-## Download rproject repository
-To download R project repository, navigate to your desired workspace, paste following command and press enter. This will clone the rproject repository into your local.
+## Download r-project repository
+To download r-project repository, navigate to your desired workspace, paste following command and press enter. This will clone the r-project repository into your local.
 
 ```markdown
 cd /g/WorkArea/Rproject
 git clone https://github.com/kunal15abc/rproject
 ```
 You will now be able to open the .R files with your RStudio.
-If you just want to have a look at the state of the code, here's [link](https://github.com/kunal15abc/rproject) to the repository.
+If you just want to have a look at the state of the code, here's [link](https://github.com/kunal15abc/r-project) to the repository.
 
 ## Pull the latest code
 To pull the latest code, use the following command inside the repository you have cloned.
 
 ```markdown
-cd rproject
+cd r-project
 git pull
 ```
 
