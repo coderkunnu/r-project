@@ -5,7 +5,7 @@ To download r-project repository, navigate to your desired workspace, paste foll
 
 ```markdown
 cd /g/WorkArea
-git clone https://github.com/kunal15abc/r-project
+git clone https://github.com/kunal15abc/r-project.git
 ```
 You will now be able to open the .R files with your RStudio.
 If you just want to have a look at the state of the code, here's [link](https://github.com/kunal15abc/r-project) to the repository.
