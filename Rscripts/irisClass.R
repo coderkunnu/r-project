@@ -157,13 +157,13 @@ confusionMatrix(pred_test, df.test$Species)
 
 #clustering
 set.seed(101)
-irisCluster <- kmeans(df[, 1:4], centers = 3, nstart = 20)
+irisCluster <- kmeans(df[, 1:4], centers = 3, nstart = 50)
 irisCluster
-
+help(kmeans)
 #check classifiction accuracy
 table(irisCluster$cluster, df$Species)
 
-plot(df[c("Sepal.Length", "Sepal.Width")], col = irisCluster$cluster)
+plot(df[c("Petal.Width", "Sepal.Length")], col = irisCluster$cluster)
 points(irisCluster$centers[, c("Sepal.Length", "Sepal.Width")], col = 1:3, pch = 8, cex = 2)
 
 # Linear Discriminant Analysis
@@ -172,6 +172,8 @@ library(MASS)
 set.seed(101)
 model.lda <- train(x = df.train[, 1:4], y = df.train[, 5], method = "lda", metric = "Accuracy")
 print(model.lda)
+
+
 
 #verify accuracy on training set
 pred <- predict(object = model.lda, newdata = df.train[, 1:4])
