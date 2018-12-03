@@ -10,6 +10,9 @@
 # install.packages("RGtk2", depen=T)
 # install.packages("xgboost")
 # install.packages("MASS")
+# install.packages("cluster")
+# install.packages("fpc")
+# install.packages("clustMisType")
 
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 setwd('..')
@@ -39,8 +42,11 @@ str (df)
 summary(df)
 
 set.seed(101)
-credit <- kmeans(df[c("months_loan_duration","amount","installment_rate","existing_credits")], centers = 3, nstart = 20)
+credit <- kmeans(df[c("dependents","amount")], centers = 2)
 credit
 
-plot(df[c("amount", "existing_credits")], col = credit$cluster)
-points(credit$centers[, c("amount", "existing_credits")], col = 1:21, pch = 8, cex = 2)
+plot(df[c("dependents","amount")], col = credit$cluster)
+points(credit$centers[, c("dependents","amount")], col = 1:21, pch = 8, cex = 2)
+
+library(cluster)
+help(plotcluster)
