@@ -26,6 +26,13 @@ str(df_new)
 set.seed(101)
 creditCluster <- kmeans(df_new[c("Annual.Income","Current.Loan.Amount","Monthly.Debt","Current.Credit.Balance")], centers = 2)
 creditCluster
-plot(df_new[c("Annual.Income","Current.Loan.Amount")], col = credit$cluster)
+plot(df_new[c("Annual.Income","Current.Loan.Amount")], col = creditCluster$cluster)
+
+library(cluster)
+library(fpc)
+plotcluster(df_new[c("Annual.Income","Current.Loan.Amount","Monthly.Debt","Current.Credit.Balance")],creditCluster$cluster)
+points(creditCluster$centers,col=1:8,pch=16)
 
 any(is.na(df_new$Credit.Score))
+help(cluster)
+help(fpc)
