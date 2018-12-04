@@ -1,5 +1,3 @@
-
-
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 setwd('..')
 getwd()
