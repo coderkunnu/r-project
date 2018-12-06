@@ -59,5 +59,34 @@ df_num <- df[,c(4,6,7,11,12,13,14,16,17)]
 df_num <- lapply(df_num,as.numeric)
 str(df_num)
 boxplot(df_num)
-boxplot(df_num[,c(2)])
-plot(df_num[,c(10)])
+
+
+outlier_values <- boxplot.stats(df_num$Credit.Score)$out
+boxplot(df_num$Credit.Score, main="Credit.Score", boxwex=0.1)
+mtext(paste("Outliers: ", paste(outlier_values, collapse=", ")), cex=0.6)
+
+outlier_values <- boxplot.stats(df_num$Annual.Income)$out
+boxplot(df_num$Annual.Income, main="Annual.Income", boxwex=0.1)
+mtext(paste("Outliers: ", paste(outlier_values, collapse=", ")), cex=0.6)
+
+outlier_values <- boxplot.stats(df_num$Monthly.Debt)$out
+boxplot(df_num$Monthly.Debt, main="Monthly.Debt", boxwex=0.1)
+mtext(paste("Outliers: ", paste(outlier_values, collapse=", ")), cex=0.6)
+
+outlier_values <- boxplot.stats(df_num$Years.of.Credit.History)$out
+boxplot(df_num$Years.of.Credit.History, main="Years.of.Credit.History", boxwex=0.1)
+mtext(paste("Outliers: ", paste(outlier_values, collapse=", ")), cex=0.6)
+
+outlier_values <- boxplot.stats(df_num$Months.since.last.delinquent)$out
+boxplot(df_num$Months.since.last.delinquent, main="Months.since.last.delinquent", boxwex=0.1)
+mtext(paste("Outliers: ", paste(outlier_values, collapse=", ")), cex=0.6)
+
+outlier_values <- boxplot.stats(df_num$Number.of.Open.Accounts)$out
+boxplot(df_num$Number.of.Open.Accounts, main="Number.of.Open.Accounts", boxwex=0.1)
+mtext(paste("Outliers: ", paste(outlier_values, collapse=", ")), cex=0.6)
+
+outlier_values <- boxplot.stats(df_num$Current.Credit.Balance)$out
+boxplot(df_num$Current.Credit.Balance, main="Current.Credit.Balance", boxwex=0.1)
+mtext(paste("Outliers: ", paste(outlier_values, collapse=", ")), cex=0.6)
+
+max(df_num$Annual.Income)
