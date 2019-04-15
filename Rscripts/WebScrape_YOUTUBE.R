@@ -3,10 +3,13 @@
 #install.packages("stringr")
 library(rvest)
 library(stringr)
-library(RSelenium)
-url <- "https://www.youtube.com/watch?v=kJQP7kiw5Fk"
-driver<- rsDriver(browser=c("chrome"))
-remDr <- driver[["client"]]
+
+#library(RSelenium)
+#driver<- rsDriver(browser=c("chrome"))
+#remDr <- driver[["client"]]
+
+#url <- "https://www.youtube.com/watch?v=kJQP7kiw5Fk"
+
 
 page <- "rtestyt.html"
 html <- read_html(page)
@@ -20,5 +23,6 @@ get_comments <- function(html){
 }
 
 comments <- get_comments(html)
+head(comments)
 
 
