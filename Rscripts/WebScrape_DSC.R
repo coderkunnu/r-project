@@ -14,14 +14,13 @@ tableID <- "drug-shortage-reports"
 # Provide output Filename -
 outputFileName<- "drug-shortage.csv"
 
-
 html <- read_html(url)
-cssSelectoHead <- paste("#",tableID," thead tr th", sep = "")
-cssSelectoBody <- paste("#",tableID," tbody tr td", sep = "")
+cssSelectorHead <- paste("#",tableID," thead tr th", sep = "")
+cssSelectorBody <- paste("#",tableID," tbody tr td", sep = "")
 
 getTableHeader <- function(html){
   html %>%
-    html_nodes(cssSelectoHead) %>%   
+    html_nodes(cssSelectorHead) %>%   
     html_text() %>%
     str_trim() %>%
     unlist()
@@ -29,7 +28,7 @@ getTableHeader <- function(html){
 
 getTableData <- function(html){
   html %>%
-  html_nodes(cssSelectoBody) %>%   
+  html_nodes(cssSelectorBody) %>%   
   html_text() %>%
   str_trim() %>%
   unlist()
@@ -45,7 +44,7 @@ rowCount
 dataTable <- data.frame(matrix(ncol = colCount, nrow= rowCount))
 colnames(dataTable) <- tableHeader
 
-for(n in 1:7) {
+for(n in 1:colCount) {
   dataTable[,n] <- tableData[seq(n,length(tableData),colCount)]
 }
 
